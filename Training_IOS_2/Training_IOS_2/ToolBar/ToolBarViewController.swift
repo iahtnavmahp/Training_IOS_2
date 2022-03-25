@@ -51,11 +51,12 @@ class ToolBarViewController: UIViewController{
     }
     
     @objc func test2(){
-        if let text = textfield.text{
+      
+        if let text = self.textfield.text{
             if text.count > 0{
-                listTest.append(text)
-                textfield.text = ""
-                myTableView.reloadData()
+                self.listTest.append(text)
+                self.textfield.text = ""
+                self.myTableView.reloadData()
             }else{
                 print("nhap text")
             }
@@ -76,6 +77,7 @@ class ToolBarViewController: UIViewController{
     @objc func keyboardWillHide(notification: NSNotification) {
         bottomNS.constant = 0
     }
+ 
     
 }
 extension ToolBarViewController: UITableViewDelegate, UITableViewDataSource {

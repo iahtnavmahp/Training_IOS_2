@@ -7,15 +7,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController ,UIActionSheetDelegate{
     let data = ["New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX",
-            "Philadelphia, PA", "Phoenix, AZ", "San Diego, CA", "San Antonio, TX",
-            "Dallas, TX", "Detroit, MI", "San Jose, CA", "Indianapolis, IN",
-            "Jacksonville, FL", "San Francisco, CA", "Columbus, OH", "Austin, TX",
-            "Memphis, TN", "Baltimore, MD", "Charlotte, ND", "Fort Worth, TX"]
+                "Philadelphia, PA", "Phoenix, AZ", "San Diego, CA", "San Antonio, TX",
+                "Dallas, TX", "Detroit, MI", "San Jose, CA", "Indianapolis, IN",
+                "Jacksonville, FL", "San Francisco, CA", "Columbus, OH", "Austin, TX",
+                "Memphis, TN", "Baltimore, MD", "Charlotte, ND", "Fort Worth, TX"]
     var dataFilter :[String] = []
     @IBOutlet weak var myTableView: UITableView!
-
+    
     @IBOutlet weak var mySearchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,38 @@ class HomeViewController: UIViewController {
         dataFilter = data
         
     }
-
+    func showAlert(){
+        let alert = UIAlertController(title: "Title",
+                                      message: "Message ?",
+                                      preferredStyle: .alert)
+        
+        
+        // Add action buttons to it and attach handler functions if you want to
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
+            print("cancel")
+        }))
+        alert.addAction(UIAlertAction(title: "Just Do It!", style: .destructive, handler: {_ in
+            self.presentModal()
+        }))
+        alert.addAction(UIAlertAction(title: "Maybe", style: .default, handler: {_ in
+                                        let vc = self.storyboard!.instantiateViewController(withIdentifier: "ContextMenuViewController") as! ContextMenuViewController
+                                        
+                                        
+                                        self.present(vc, animated: true, completion: nil)        }))
+        
+        // Show the alert by presenting it
+        
+        self.present(alert, animated: true)
+    }
+    func presentModal() {
+        
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "SheetViewController") as! SheetViewController
+        
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
     func configTableView(){
         myTableView.register(UINib(nibName: "SearchBarTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchBarTableViewCell")
         myTableView.delegate = self
@@ -57,8 +88,8 @@ class HomeViewController: UIViewController {
             target: self,
             action: #selector(popViewController)
         )
-    
-
+        
+        
         
     }
     @objc func run(){
@@ -66,7 +97,7 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func run2(){
-        print("runnnnn")
+        showAlert()
     }
     @objc func popViewController(){
         navigationController?.popViewController(animated: true)
@@ -81,20 +112,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarTableViewCell", for: indexPath) as? SearchBarTableViewCell else { return UITableViewCell() }
         cell.lblTitle?.text = dataFilter[indexPath.row]
-            return cell
+        return cell
     }
 }
 extension HomeViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         dataFilter = searchText.isEmpty ? data : data.filter { (item: String) -> Bool in
-                    
-                    return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                }
-                
-                myTableView.reloadData()
+            
+            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        
+        myTableView.reloadData()
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            self.mySearchBar.showsCancelButton = true
+        self.mySearchBar.showsCancelButton = true
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.mySearchBar.showsCancelButton = false
