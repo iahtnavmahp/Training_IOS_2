@@ -7,14 +7,16 @@
 
 import UIKit
 
-class ContextMenuViewController: UIViewController, UIContextMenuInteractionDelegate {
+class ContextMenuViewController: UIViewController, UIContextMenuInteractionDelegate,UITextViewDelegate {
     @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let interaction = UIContextMenuInteraction(delegate: self)
         img.addInteraction(interaction)
         img.isUserInteractionEnabled = true
+        addCustomMenu()
     }
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         return  UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ -> UIMenu? in
@@ -34,6 +36,18 @@ class ContextMenuViewController: UIViewController, UIContextMenuInteractionDeleg
             print("Save to Photos")
         }
         
-        return UIMenu(title: "", children: [shareAction, copy, saveToPhotos])
+        return UIMenu(title: "Click", children: [shareAction, copy, saveToPhotos])
     }
+    func addCustomMenu() {
+           //Xcode doesn't like printToConsole being a var and a function call
+           let printToConsole = UIMenuItem(title: "test custom menu", action: #selector(printToConsole2))
+
+            UIMenuController.shared.menuItems = [printToConsole]
+        }
+
+        @objc func printToConsole2() {
+           if let range = textView.selectedTextRange, let selectedText = textView.text(in: range) {
+              print(selectedText)
+           }
+        }
 }

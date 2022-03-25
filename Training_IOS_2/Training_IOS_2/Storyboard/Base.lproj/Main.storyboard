@@ -177,18 +177,31 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cursorarrow.rays" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3YK-ZP-3KC">
                                 <rect key="frame" x="69" y="379" width="290" height="177.33333333333337"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Nf-An-cgf">
+                                <rect key="frame" x="94" y="207" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="76H-37-1W8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3YK-ZP-3KC" firstAttribute="width" secondItem="FXm-0y-aXj" secondAttribute="width" multiplier="0.67757" id="16u-kP-G8b"/>
                             <constraint firstItem="3YK-ZP-3KC" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="1NM-zC-Uar"/>
+                            <constraint firstItem="5Nf-An-cgf" firstAttribute="height" secondItem="FXm-0y-aXj" secondAttribute="height" multiplier="0.138229" id="81J-Rt-6HH"/>
                             <constraint firstItem="3YK-ZP-3KC" firstAttribute="height" secondItem="FXm-0y-aXj" secondAttribute="height" multiplier="0.192225" id="LOu-Vt-YFl"/>
+                            <constraint firstItem="5Nf-An-cgf" firstAttribute="width" secondItem="FXm-0y-aXj" secondAttribute="width" multiplier="0.560748" id="MMW-CM-ffs"/>
+                            <constraint firstItem="5Nf-An-cgf" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="ONi-oq-hbS"/>
                             <constraint firstItem="3YK-ZP-3KC" firstAttribute="centerY" secondItem="76H-37-1W8" secondAttribute="centerY" id="Plb-Dr-N7l"/>
+                            <constraint firstItem="3YK-ZP-3KC" firstAttribute="top" secondItem="5Nf-An-cgf" secondAttribute="bottom" constant="44" id="hxQ-vn-n8K"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="img" destination="3YK-ZP-3KC" id="JxH-tV-g4s"/>
+                        <outlet property="textView" destination="5Nf-An-cgf" id="QPD-Bo-Vua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJD-SP-WJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -271,6 +284,9 @@
     </scenes>
     <resources>
         <image name="cursorarrow.rays" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
