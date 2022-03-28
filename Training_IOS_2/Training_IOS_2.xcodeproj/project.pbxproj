@@ -22,6 +22,7 @@
 		B4DAEEC127EC466400029B70 /* SearchBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DAEEBF27EC466400029B70 /* SearchBarTableViewCell.swift */; };
 		B4DAEEC227EC466400029B70 /* SearchBarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DAEEC027EC466400029B70 /* SearchBarTableViewCell.xib */; };
 		B4DAEEC527EC651E00029B70 /* ToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DAEEC427EC651E00029B70 /* ToolBarViewController.swift */; };
+		B4FE758627F153E300A089C9 /* SKUIDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FE758527F153E300A089C9 /* SKUIDatePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B4DAEEBF27EC466400029B70 /* SearchBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableViewCell.swift; sourceTree = "<group>"; };
 		B4DAEEC027EC466400029B70 /* SearchBarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarTableViewCell.xib; sourceTree = "<group>"; };
 		B4DAEEC427EC651E00029B70 /* ToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarViewController.swift; sourceTree = "<group>"; };
+		B4FE758527F153E300A089C9 /* SKUIDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKUIDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		B4DAEE9E27EC130200029B70 /* Training_IOS_2 */ = {
 			isa = PBXGroup;
 			children = (
+				B4FE758427F153D500A089C9 /* SKUIDatePicker */,
 				B4DAEEB527EC1F8A00029B70 /* HomeView */,
 				B45A250927EDB50400393DED /* ContextMenu */,
 				B45A250627EDA33700393DED /* SheetView */,
@@ -172,6 +175,14 @@
 				B4DAEEC427EC651E00029B70 /* ToolBarViewController.swift */,
 			);
 			path = ToolBar;
+			sourceTree = "<group>";
+		};
+		B4FE758427F153D500A089C9 /* SKUIDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				B4FE758527F153E300A089C9 /* SKUIDatePicker.swift */,
+			);
+			path = SKUIDatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +267,7 @@
 				B4DAEEBD27EC31ED00029B70 /* MyNavigationController.swift in Sources */,
 				B45A250327ED70AE00393DED /* DetailPageViewController.swift in Sources */,
 				B4DAEEB727EC1FA600029B70 /* HomeViewController.swift in Sources */,
+				B4FE758627F153E300A089C9 /* SKUIDatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

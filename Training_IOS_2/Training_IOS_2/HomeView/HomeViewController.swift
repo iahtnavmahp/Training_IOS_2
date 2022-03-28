@@ -15,7 +15,7 @@ class HomeViewController: UIViewController ,UIActionSheetDelegate{
                 "Memphis, TN", "Baltimore, MD", "Charlotte, ND", "Fort Worth, TX"]
     var dataFilter :[String] = []
     @IBOutlet weak var myTableView: UITableView!
-    
+    private var pullControl = UIRefreshControl()
     @IBOutlet weak var mySearchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +23,20 @@ class HomeViewController: UIViewController ,UIActionSheetDelegate{
         configNav()
         mySearchBar.delegate = self
         dataFilter = data
-        
+        configPull()
+    }
+    func configPull(){
+        pullControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            myTableView.refreshControl = pullControl
+        } else {
+            myTableView.addSubview(pullControl)
+        }
     }
     func showAlert(){
         let alert = UIAlertController(title: "Title",
-                                      message: "Message ?",
+                                      message: "Click ?",
                                       preferredStyle: .alert)
         
         
@@ -36,10 +45,10 @@ class HomeViewController: UIViewController ,UIActionSheetDelegate{
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
             print("cancel")
         }))
-        alert.addAction(UIAlertAction(title: "Just Do It!", style: .destructive, handler: {_ in
+        alert.addAction(UIAlertAction(title: "WebView", style: .destructive, handler: {_ in
             self.presentModal()
         }))
-        alert.addAction(UIAlertAction(title: "Maybe", style: .default, handler: {_ in
+        alert.addAction(UIAlertAction(title: "Context Menus", style: .default, handler: {_ in
                                         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ContextMenuViewController") as! ContextMenuViewController
                                         
                                         
@@ -90,6 +99,12 @@ class HomeViewController: UIViewController ,UIActionSheetDelegate{
         )
         
         
+        
+    }
+    @objc private func refreshListData(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.pullControl.endRefreshing()
+        }
         
     }
     @objc func run(){

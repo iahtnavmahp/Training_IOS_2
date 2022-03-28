@@ -185,23 +185,81 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="click" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="reS-XH-xAQ">
+                                <rect key="frame" x="73.666666666666686" y="165" width="281" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="UTR-uN-Y1n">
+                                <rect key="frame" x="194.66666666666666" y="118" width="39" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UTR-uN-Y1n" secondAttribute="height" multiplier="1:1" id="UjM-oA-nDh"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cue-Hd-7eA">
+                                <rect key="frame" x="190.66666666666666" y="79" width="49" height="31"/>
+                                <connections>
+                                    <action selector="Switch:" destination="1s3-pV-PnZ" eventType="valueChanged" id="1G6-Qu-0v7"/>
+                                </connections>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ce3-p2-WIV">
+                                <rect key="frame" x="69.666666666666686" y="565" width="289" height="30"/>
+                                <connections>
+                                    <action selector="sliderAction:" destination="1s3-pV-PnZ" eventType="valueChanged" id="UIn-3x-Cc9"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phY-pk-6uj">
+                                <rect key="frame" x="206" y="602" width="16" height="63"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Cbt-40-L73">
+                                <rect key="frame" x="167" y="673" width="94" height="32"/>
+                                <connections>
+                                    <action selector="stepperAction:" destination="1s3-pV-PnZ" eventType="valueChanged" id="Sq9-mf-nHY"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="76H-37-1W8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5Nf-An-cgf" firstAttribute="top" secondItem="reS-XH-xAQ" secondAttribute="bottom" constant="8" id="0gX-5L-EvQ"/>
+                            <constraint firstItem="phY-pk-6uj" firstAttribute="height" secondItem="FXm-0y-aXj" secondAttribute="height" multiplier="0.0680346" id="0x7-rX-Yd6"/>
                             <constraint firstItem="3YK-ZP-3KC" firstAttribute="width" secondItem="FXm-0y-aXj" secondAttribute="width" multiplier="0.67757" id="16u-kP-G8b"/>
                             <constraint firstItem="3YK-ZP-3KC" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="1NM-zC-Uar"/>
+                            <constraint firstItem="UTR-uN-Y1n" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="2Xq-fo-YH5"/>
+                            <constraint firstItem="cue-Hd-7eA" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="5qS-R4-CRA"/>
                             <constraint firstItem="5Nf-An-cgf" firstAttribute="height" secondItem="FXm-0y-aXj" secondAttribute="height" multiplier="0.138229" id="81J-Rt-6HH"/>
+                            <constraint firstItem="ce3-p2-WIV" firstAttribute="top" secondItem="3YK-ZP-3KC" secondAttribute="bottom" constant="8" id="ADy-mE-9fs"/>
+                            <constraint firstItem="ce3-p2-WIV" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="JaD-Tc-xMA"/>
+                            <constraint firstItem="phY-pk-6uj" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="K4m-6s-QJU"/>
                             <constraint firstItem="3YK-ZP-3KC" firstAttribute="height" secondItem="FXm-0y-aXj" secondAttribute="height" multiplier="0.192225" id="LOu-Vt-YFl"/>
                             <constraint firstItem="5Nf-An-cgf" firstAttribute="width" secondItem="FXm-0y-aXj" secondAttribute="width" multiplier="0.560748" id="MMW-CM-ffs"/>
                             <constraint firstItem="5Nf-An-cgf" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="ONi-oq-hbS"/>
+                            <constraint firstItem="Cbt-40-L73" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="Oze-83-GDw"/>
                             <constraint firstItem="3YK-ZP-3KC" firstAttribute="centerY" secondItem="76H-37-1W8" secondAttribute="centerY" id="Plb-Dr-N7l"/>
+                            <constraint firstItem="cue-Hd-7eA" firstAttribute="width" secondItem="FXm-0y-aXj" secondAttribute="width" multiplier="0.109813" id="WZ2-gY-QDO"/>
+                            <constraint firstItem="reS-XH-xAQ" firstAttribute="centerX" secondItem="76H-37-1W8" secondAttribute="centerX" id="Xa1-Rq-LE3"/>
+                            <constraint firstItem="reS-XH-xAQ" firstAttribute="width" secondItem="FXm-0y-aXj" secondAttribute="width" multiplier="0.656542" id="YEK-V7-ynI"/>
+                            <constraint firstItem="ce3-p2-WIV" firstAttribute="height" secondItem="FXm-0y-aXj" secondAttribute="height" multiplier="0.0313175" id="btZ-SS-Hpc"/>
+                            <constraint firstItem="ce3-p2-WIV" firstAttribute="width" secondItem="FXm-0y-aXj" secondAttribute="width" multiplier="0.665888" id="doN-SW-4gm"/>
+                            <constraint firstItem="UTR-uN-Y1n" firstAttribute="top" secondItem="cue-Hd-7eA" secondAttribute="bottom" constant="8" id="doV-Hf-yvw"/>
+                            <constraint firstItem="UTR-uN-Y1n" firstAttribute="width" secondItem="FXm-0y-aXj" secondAttribute="width" multiplier="0.0911215" id="enV-X4-8jW"/>
+                            <constraint firstItem="Cbt-40-L73" firstAttribute="top" secondItem="phY-pk-6uj" secondAttribute="bottom" constant="8" id="hVF-3i-vF1"/>
                             <constraint firstItem="3YK-ZP-3KC" firstAttribute="top" secondItem="5Nf-An-cgf" secondAttribute="bottom" constant="44" id="hxQ-vn-n8K"/>
+                            <constraint firstItem="reS-XH-xAQ" firstAttribute="top" secondItem="UTR-uN-Y1n" secondAttribute="bottom" constant="8" id="rb6-Uo-SEP"/>
+                            <constraint firstItem="phY-pk-6uj" firstAttribute="top" secondItem="ce3-p2-WIV" secondAttribute="bottom" constant="8" id="thq-fb-Pjq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicators" destination="UTR-uN-Y1n" id="C4M-KI-4tZ"/>
                         <outlet property="img" destination="3YK-ZP-3KC" id="JxH-tV-g4s"/>
+                        <outlet property="lblInt" destination="phY-pk-6uj" id="7U2-na-xfH"/>
+                        <outlet property="slider" destination="ce3-p2-WIV" id="2vy-KZ-6BI"/>
+                        <outlet property="stepper" destination="Cbt-40-L73" id="z7a-Dq-DQG"/>
                         <outlet property="textView" destination="5Nf-An-cgf" id="QPD-Bo-Vua"/>
+                        <outlet property="txtDatePicker" destination="reS-XH-xAQ" id="WGk-Zh-kUJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJD-SP-WJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
